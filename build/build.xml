@@ -1,0 +1,107 @@
+<!-- This is the default ant build file for projects using  -->
+<!-- DMI/VU autobuild system. The file should in most cases -->
+<!-- be used without modifications. Just copy this build    -->
+<!-- directory to the build directory of your project       -->
+<!-- (usually main.build).                                  -->
+<!-- Dependencies for the project should be specified in    -->
+<!-- the file project.properties.                           -->
+
+<project name="basis-data-corrected-precipitation" default="jar">
+	<!-- Implement the properties below if you want to override -->
+	<!-- some of the default behaviour of the autobuild system. -->
+	<!-- If any of the default build features should be called -->
+	<!-- use the prefix standardbuild, for instance a new target--> 
+	<!-- depending on the standard jar target would specify     -->
+	<!-- depends="standardbuild.jar" in the target header.      -->
+	<!-- For the properties described below the default value is-->
+	<!-- shown as the value. Don't change the properties unless -->
+	<!-- there is a really good reason to do so. Normally it is -->
+	<!-- better to adjust the project to the standard to avoid  -->
+	<!-- a lot of different directory structures and build      -->
+	<!-- procedures.                                            -->
+	<!-- Directories are relative to the build directory of the -->
+	<!-- project.                                               -->
+		
+	<!-- Property specifying the output directory where the generated jars
+	     or wars are placed -->
+	<!-- 	<property name="output" value="../export" /> -->
+		
+	<!-- Property specifying the name of the the generated jar file. -->
+	<!-- 	<property name="jarname" value="${project}.jar" /> -->
+	
+	<!-- Property specifying the name of the the generated war file. -->
+	<!-- 	<property name="warname" value="${project}.war" /> -->
+	
+	<!-- Property specifying the name of a main class to be specified in
+	     the manifest file of the jar -->
+	<!-- 	<property name="main.classname" value="undefined" /> -->
+	
+	<!-- Property specifying the name the directory cantaining the
+	     different configurations for the project  -->
+	<!-- 	<property name="config.root" value="../config" /> -->
+	
+	<!-- The debug property to the javac compiler. If "on" debug info is
+	     generated into the class files and you will get a stack trace in
+	     the unlikely event of a program failure -->
+	<!-- 	<property name="javac.debug" value="on" /> -->
+
+	<!-- Property used to specify additional compiler options to the javac
+	     compiler -->
+	<!-- 	<property name="javac.compilerarg" value="" /> -->
+
+	<!-- Property used to specify the encoding of the source files as an option
+	     to the javac compiler -->
+	<!--     <property name="javac.encoding" value="ISO-8859-1" /> -->
+
+	<!-- Property used for web and servlet applications to specify the
+	     webcontent to be placed in the generated .war file -->
+	<!-- 	<property name="web.root" value="../${project}" /> -->
+	
+	<!-- Property used when signing jars. The jar will be signed using
+	     this alias -->
+	<!-- <property name="signjar.alias" value="dmiAlias"/> -->
+
+	<!-- Property used when signing jars. The name of the keystore file -->
+	<!-- <property name="signjar.keystore" value=""/> -->
+	
+	<!-- Property used when signing jars. The password used for signing -->
+	<!-- <property name="signjar.password" value=""/> -->
+	
+	<!-- Property used with java web start applications. When set the
+	     build inserts .jnlp files into the main jar file ("jnlp signing")
+	     and signs the jar file(s) again. When more than one .jnlp file
+	     is present the main jar is copied to a new jar with the same name
+	     as the .jnlp file -->
+	<!-- <property name="signjnlp" value=""/> -->
+	
+	<!-- Property to collect all jars into one jar file. Set it to true to
+	     enable one jar packaging -->
+	<!-- <property name="onejar" value=""/> -->
+	
+	<!-- Property specifying timezone for "%{date}" and "%{time}" substitutions-->
+	<!-- <property name="build.timezone" value="UTC"/> -->
+
+	<!-- Property specifying locale for "%{date}" and "%{time}" substitutions-->
+	<!-- <property name="build.locale" value="da,DK"/> -->
+
+	<!-- Property specifying format for "%{date}" substitutions-->
+	<!-- <property name="build.date.format" value="yyyy-MM-dd"/> -->
+
+	<!-- Property specifying format for "%{time}" substitutions-->
+	<!-- <property name="build.time.format" value="HH:mm zzz"/> -->
+
+	<import file="../../../../build/build.xml"/>
+
+    <!-- By default all non-java files in ../source is bundled into the jar-file.
+         To change this define a reference like this -->
+    <!-- <fileset id="bundled.resources" dir="../resources">
+             <include name="**/*.properties" />
+             <include name="**/*.png" />
+         </fileset> -->
+
+	<!-- files in project-dir which will have "%{version}", "%{date}" and "%{time}" replaced -->
+	<!-- <patternset id="preprocess.resources">
+		<include name="**/version.java" />
+             </patternset> -->
+
+</project>
